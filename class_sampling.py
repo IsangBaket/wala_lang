@@ -1,28 +1,32 @@
 class Dog:
-    def __init__(self, name, action):
+    def __init__(self, name,):
         self.name = name
-        self.action = action
 
-    def walk(self):   
-        if self.action == 'w':
+    def walk(self, action):   
+        if action == 'w':
             print(f'{self.name} is walking forward')
-        elif self.action == "e":
+        elif action == 'a':
+            print(f'{self.name} is walking letfward')
+        elif action == 's':
+            print(f'{self.name} is walking rightward')
+        elif action == 'd':
+            print(f'{self.name} is walking backward')
+        elif action == "e":
             print(f"{self.name} stopped")
     
-    def sleep(self):
-        if self.action == 'f':
+    def sleep(self, action):
+        if action == 'f':
             print(f"{self.name} is sleeping")
-        elif self.action == 'g':
+        elif action == 'g':
             print(f"{self.name} is awake")
 
-    def eat(self):
-        if self.action == 'r':
+    def eat(self, action):
+        if action == 'r':
             print(f"{self.name} is Eating")
 
-dog_name = input("Give the dog a name: ")
-while True:
-    user_input = input("Press the keys [w,a,s,d,e,f,g,r] to command the dog. e to exit: ")
-    Dog(dog_name, user_input)
+
+
+
 
 
         
