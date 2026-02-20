@@ -7,27 +7,36 @@ def file_name():
 
 def message_reader(file):
     try:
-        with open(file) as f:
-            return f.read()
-                
+        with open(file, 'r') as f:
+            for line in f:
+                content = line.strip()
+                if content:
+                    message_sender(content)
+                    print(f"Sent: {content}")
+                        
     except FileNotFoundError:
         print("bruh di ko mahanap")
         print(f"Current working directory: {os.getcwd()}")
         file_name()
 
-def message_sender(message):
+def message_sender(message): 
+    key = 'secret'
     url = 'https://discord.com/api/v9/channels/1446467532725686334/messages'
     payload = {
         "content" : f"{message}"
     }
     headers = {
-        "Authorization" : "classified"
+        "Authorization" : key
     }
     res = requests.post(url, json=payload, headers=headers)
 
-txt = file_name()
-content = message_reader(txt)
-message_sender(content)
+def main():
+    txt = file_name()
+    content = message_reader(txt)
+    message_sender(content)
+
+if __name__ == '__main__':
+    main()
 
 
 
