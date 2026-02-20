@@ -32,8 +32,7 @@ def message_sender(message):
 
 def main():
     txt = file_name()
-    content = message_reader(txt)
-    message_sender(content)
+    message_reader(txt)
 
 if __name__ == '__main__':
     main()
